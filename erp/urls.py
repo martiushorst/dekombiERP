@@ -13,7 +13,7 @@ urlpatterns = [
     path('', views.DashboardView.as_view(), name='dashboard'),
     
     # Cadastros
-    #path('cadastros/', include('cadastros.urls')),
+    path('cadastros/', include('cadastros.urls')),
     # Layouts
     path('layout/', include('layout.urls')),
     # Allauth
