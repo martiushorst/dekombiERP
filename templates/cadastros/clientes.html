@@ -8,22 +8,124 @@
     <!-- dropzone css -->
     <link href="{% static 'libs/dropzone/dist/min/dropzone.min.css' %}" rel="stylesheet" type="text/css" />
 {% endblock %}
+
 {% block contents %}
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title mb-4">Cadastrar novo cliente</h4>
-                    <form method="post" novalidate>
-                        {% csrf_token %}
-                        {{ form|crispy }}
-                    <div class="buttonHolder">
-                        <input type="submit" name="submit" value="Submit" class="submit submitButton" id="submit-id-submit" />
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-4">Cadastro de Cliente</h4>
+
+                <form method="post" novalidate>
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        {{ form.nome_razao_social|as_crispy_field }}
                     </div>
-                </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                {{ form.cpf_cnpj|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                {{ form.rg_ie|as_crispy_field }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="mb-3">
+                                {{ form.endereco|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-3">
+                                {{ form.numero|as_crispy_field }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                {{ form.complemento|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                {{ form.bairro|as_crispy_field }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="mb-3">
+                                {{ form.cidade|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="mb-3">
+                                {{ form.cep|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="mb-3">
+                                {{ form.uf|as_crispy_field }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="mb-3">
+                                {{ form.fone|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="mb-3">
+                                {{ form.celular|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="mb-3">
+                                {{ form.whats|as_crispy_field }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="mb-3">
+                                {{ form.email|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="mb-3">
+                                {{ form.data_nasc_abertura|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="mb-3">
+                                {{ form.contato|as_crispy_field }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-md">Cadastrar</button>
+
+                </form>
             </div>
+            <!-- end card body -->
         </div>
+        <!-- end card -->
     </div>
+    <!-- end col -->
+</div>
 {% endblock %}
 
 {% block extra_javascript %}
