@@ -18,11 +18,11 @@ class UserRegistrationForm(SignupForm):
         super(UserRegistrationForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper(self)
         self.fields['email'].widget = forms.EmailInput(attrs={'class': 'form-control mb-1','placeholder':'Enter Email','id':'email'})
-        self.fields['email'].label="Email"
+        self.fields['email'].label = "Email"
         self.fields['username'].widget = forms.TextInput(attrs={'class': 'form-control mb-1','placeholder':'Enter Username','id':'username1'})
         self.fields['password1'].widget = forms.PasswordInput(attrs={'class': 'form-control mb-1','placeholder':'Enter Password','id':'password1'})
         self.fields['password2'].widget = forms.PasswordInput(attrs={'class': 'form-control mb-1','placeholder':'Enter Confirm Password','id':'password2'})
-        self.fields['password2'].label="Confirm Password"
+        self.fields['password2'].label = "Confirm Password"
         
 class PasswordChangeForm(ChangePasswordForm):
       def __init__(self, *args, **kwargs):

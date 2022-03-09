@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     
     # Local App
     'layout',
+    'cadastros',
     
     # Third Party App
     'crispy_forms',
