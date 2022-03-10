@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     
     # Third Party App
     'crispy_forms',
+    'bootstrap4',
+    'widget_tweaks',
     'django.contrib.sites',
     'django.contrib.humanize',
     'allauth',

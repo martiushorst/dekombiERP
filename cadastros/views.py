@@ -7,7 +7,7 @@ from .forms import *
 from django.urls import reverse_lazy
 
 
-class CadastroClientesView(LoginRequiredMixin, View):
+class ClientesView(LoginRequiredMixin, View):
     def get(self, request):
         greeting = {}
         greeting['heading'] = "Clientes"
@@ -18,17 +18,10 @@ class CadastroClientesView(LoginRequiredMixin, View):
 class ClientesCreateView(LoginRequiredMixin, CreateView):
     form_class = ClienteForm
     template_name = "cadastros/clientes.html"
-    success_url = reverse_lazy('cadastro:cadastro-clientes')
+    success_url = reverse_lazy('cadastro-clientes')
 
     def get_context_data(self, **kwargs):
         context = super(CreateView, self).get_context_data(**kwargs)
         context['heading'] = "Cliente"
         context['pageview'] = "Cadastros"
         return context
-    """
-    model = Cliente
-    template_name = "cadastros/clientes.html"
-    form_class = ClienteForm
-    success_url = reverse_lazy('cadastro:cadastro-clientes')
-    """
-

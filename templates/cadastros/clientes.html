@@ -1,6 +1,7 @@
 {% extends 'partials/base.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
+{% load widget_tweaks %}
 
 {% block extra_css %}
     <link href="{% static 'libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css' %}" rel="stylesheet">
@@ -20,13 +21,21 @@
                     {% csrf_token %}
 
                     <div class="mb-3">
-                        {{ form.nome_razao_social|as_crispy_field }}
+                        {{ form.nome_razao_social|attr:"autofocus"|as_crispy_field }}
                     </div>
 
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                             <div class="mb-3">
                                 {{ form.cpf_cnpj|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="mb-3">
+                                <label>Buscar CNPJ</label>
+                                <button class="btn btn-danger w-md">
+                                    <i class="mdi mdi-cloud-search-outline"></i>
+                                </button>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -70,7 +79,7 @@
                         </div>
                         <div class="col-lg-4">
                             <div class="mb-3">
-                                {{ form.cep|as_crispy_field }}
+                                {{ form.cep|attr:"data-mask=00000-000"|as_crispy_field }}
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -88,11 +97,12 @@
                         </div>
                         <div class="col-lg-4">
                             <div class="mb-3">
-                                {{ form.celular|as_crispy_field }}
+                                {{ form.celular|attr:"data-mask=(00)00000-0000"|as_crispy_field }}
                             </div>
                         </div>
-                        <div class="col-lg-4">
-                            <div class="mb-3">
+                        <div class="row justify-content-center align-self-center col-lg-4">
+                            <div class="bottom-align mb-3">
+                                <label>Celular é whatsapp?</label>
                                 {{ form.whats|as_crispy_field }}
                             </div>
                         </div>
